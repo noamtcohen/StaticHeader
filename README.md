@@ -1,1 +1,1 @@
-Hi
+Static Header Plugin for HTML tables
