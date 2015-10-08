@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Static Header</title>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="static-header.js"></script>
+    <script src="lorem-ipsum.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+
+    <style>
+        body{
+            font-family: 'Indie Flower', cursive;
+        }
+        #container{
+            margin-left: 20px;
+        }
+        table thead{
+            background-color:#222;
+            color: white;
+        }
+
+        td{
+            padding: 3px;
+            border-right: 1px solid #888;
+            border-bottom: 1px solid #888;
+        }
+        td:first-child{
+            border-left: 1px solid #888;
+        }
+    </style>
+    <script>
+        $(function(){
+            generateDevTable(10,10);
+            $("table").staticHeader();
+        });
+
+        function createATd(ipsumOptions){
+            return  "<td>" +loremIpsum(ipsumOptions)+ "</td>";
+        }
+
+        function createARow(colCount,ipsumOptions){
+            var tr="<tr>";
+
+            for(var i=0;i<colCount;i++)
+                tr+=createATd(ipsumOptions);
+
+            return tr +"</tr>";
+        }
+
+        function generateDevTable(colCount,rowCount){
+            var tbl = "<table cellpadding='0' cellspacing='0'><thead>";
+
+            tbl+=createARow(colCount,{units:'words',count:2});
+
+            tbl+="</thead><tbody>"
+
+            for(var i=0;i<rowCount;i++)
+                tbl+=createARow(colCount,{units:'sentences',count:1});
+
+            tbl +="</tbody></table>"
+
+            $("#container").append(tbl);
+        }
+    </script>
+</head>
+<body>
+    <h3>Static Header</h3>
+    <div id="container"></div>
+</body>
+</html>
