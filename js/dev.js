@@ -1,10 +1,6 @@
 /**
  * Created by noamc on 10/11/15.
  */
-$(function(){
-    generateDevTable(10,10);
-});
-
 function createATd(ipsumOptions){
     return  "<td>" +loremIpsum(ipsumOptions)+ "</td>";
 }

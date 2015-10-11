@@ -10,16 +10,17 @@
     <script src="js/lorem-ipsum.js"></script>
     <script src="js/dev.js"></script>
 
-    <link href="static-header/static-header.css">
+    <link href="static-header/static-header.css" rel="stylesheet" type="text/css">
     <script src="static-header/static-header.js"></script>
-    <script>
-        $(function(){
-            $("table").staticHeader();
-        })
-    </script>
+
 </head>
 <body>
     <h3>Static Header</h3>
     <div id="container"></div>
+
+    <script>
+        generateDevTable(10,10);
+        $("table").staticHeader();
+    </script>
 </body>
 </html>
