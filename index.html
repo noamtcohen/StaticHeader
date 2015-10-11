@@ -19,7 +19,8 @@
     <div id="container"></div>
 
     <script>
-        generateDevTable(10,10);
+        generateDevTable(10,10,{units:'words',count:2},{units:'sentences',count:1});
+        generateDevTable(10,10,{units:'words',count:1},{units:'words',count:2});
         $("table").staticHeader();
     </script>
 </body>

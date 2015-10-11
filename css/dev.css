@@ -17,3 +17,7 @@ td{
 td:first-child{
     border-left: 1px solid #888;
 }
+
+.static-header-wrapper{
+    margin-bottom: 50px;
+}

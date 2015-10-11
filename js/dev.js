@@ -14,15 +14,15 @@ function createARow(colCount,ipsumOptions){
     return tr +"</tr>";
 }
 
-function generateDevTable(colCount,rowCount){
+function generateDevTable(colCount,rowCount,headerIpsum,bodyIpSum){
     var tbl = "<table cellpadding='0' cellspacing='0'><thead>";
 
-    tbl+=createARow(colCount,{units:'words',count:2});
+    tbl+=createARow(colCount,headerIpsum);
 
     tbl+="</thead><tbody>"
 
     for(var i=0;i<rowCount;i++)
-        tbl+=createARow(colCount,{units:'sentences',count:1});
+        tbl+=createARow(colCount,bodyIpSum);
 
     tbl +="</tbody></table>"
 
