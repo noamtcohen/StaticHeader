@@ -28,7 +28,7 @@ function generateDevTable(colCount,rowCount){
     for(var i=0;i<rowCount;i++)
         tbl+=createARow(colCount,{units:'sentences',count:1});
 
-    tbl +=" </tbody></table>"
+    tbl +="</tbody></table>"
 
     $("#container").append(tbl);
 }
