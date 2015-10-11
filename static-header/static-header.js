@@ -37,11 +37,12 @@
                 $headTbl.wrap('<div class="static-header-thead-wrapper"></div>');
                 $bodyTbl.wrap('<div class="static-header-tbody-wrapper"></div>');
 
-                $(".static-header-scroller").on("scroll",function(){
+                var $mainWrapper = $(this).parent().parent();
+                $mainWrapper.find(".static-header-scroller").on("scroll",function(){
                     var scrollLeft = $(this).scrollLeft();
 
-                    $(".static-header-thead-wrapper").scrollLeft(scrollLeft);
-                    $(".static-header-tbody-wrapper").scrollLeft(scrollLeft);
+                    $mainWrapper.find(".static-header-thead-wrapper").scrollLeft(scrollLeft);
+                    $mainWrapper.find(".static-header-tbody-wrapper").scrollLeft(scrollLeft);
                 });
             });
 
