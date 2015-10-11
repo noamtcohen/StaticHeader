@@ -11,7 +11,21 @@
             }, options );
 
             return this.each(function() {
-                // Do something to each element here.
+                $(this).wrap('<div class="static-header-wrapper"></div>');
+
+                var $thead = $(this).find("thead").detach();
+                var $tbody = $(this).find("tbody").detach();
+
+                $(this).parent().append($(this).clone());
+
+                var $headTbl = $(this).parent().find("table:first");
+                var $bodyTbl = $(this).parent().find("table:nth-child(2)");
+
+                $headTbl.append($thead);
+                $bodyTbl.append($tbody);
+
+                $headTbl.wrap('<div class="static-header-thead-wrapper"></div>');
+                $bodyTbl.wrap('<div class="static-header-tbody-wrapper"></div>');
             });
         },
         distroy : function( ) {    }

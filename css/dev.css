@@ -1,0 +1,19 @@
+body{
+    font-family: 'Indie Flower', cursive;
+}
+#container{
+    margin-left: 20px;
+}
+table thead{
+    background-color:#222;
+    color: white;
+}
+
+td{
+    padding: 3px;
+    border-right: 1px solid #888;
+    border-bottom: 1px solid #888;
+}
+td:first-child{
+    border-left: 1px solid #888;
+}
