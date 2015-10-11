@@ -11,7 +11,6 @@
     var methods = {
         init : function(options) {
             var settings = $.extend({
-                // These are the defaults.
             }, options );
 
             this.each(function() {
@@ -53,7 +52,7 @@
         resize : function( ) {
             $(".static-header-wrapper").each(function(){
                 var bodyTblWidth = $(this).find(".static-header-tbody-wrapper table").width();
-
+                //$(this).find(".static-header-tbody-wrapper").width(bodyTblWidth);
                 $(this).find(".static-header-thead-wrapper table").width(bodyTblWidth);
                 $(this).find(".static-header-scroll-content").width(bodyTblWidth);
                 $(this).find(".static-header-scroller").width($(this).find(".static-header-tbody-wrapper").width())
