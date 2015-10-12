@@ -12,16 +12,42 @@
 
     <link href="static-header/static-header.css" rel="stylesheet" type="text/css">
     <script src="static-header/static-header.js"></script>
-
 </head>
 <body>
-    <h3>Static Header</h3>
-    <div id="container"></div>
+    <h3>Static Header
+    <select id="test-set">
+        <option value="1">test set 1</option>
+        <option value="2">test set 2</option>
+        <option value="3">test set 3</option>
+    </select>
+    </h3>
+    <div id="container">&nbsp;</div>
 
     <script>
-        generateDevTable(10,10,{units:'words',count:2},{units:'sentences',count:1});
-        generateDevTable(10,10,{units:'words',count:1},{units:'words',count:2});
-        $("table").staticHeader();
+        //generateDevTable(10,10,{units:'words',count:2},{units:'sentences',count:1});
+        //generateDevTable(10,10,{units:'words',count:1},{units:'words',count:2});
+
+        function loadTestTables() {
+            function loadTestFile(file, callback) {
+                $.get("test-data/" + $("#test-set").val() + "/" + file, function (data) {
+                    $("#container").append(data);
+                    callback();
+                });
+            }
+
+            loadTestFile("file1.html", function () {
+                loadTestFile("file2.html", function () {
+                    $("table").staticHeader();
+                });
+            });
+        }
+
+        loadTestTables();
+
+        $("#test-set").change(function(){
+            $("#container").empty();
+            loadTestTables();
+        })
     </script>
 </body>
 </html>
