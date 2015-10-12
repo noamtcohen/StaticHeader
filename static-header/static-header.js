@@ -37,6 +37,7 @@
                 $bodyTbl.wrap('<div class="static-header-tbody-wrapper"></div>');
 
                 var $mainWrapper = $(this).parent().parent();
+
                 $mainWrapper.find(".static-header-scroller").on("scroll",function(){
                     var scrollLeft = $(this).scrollLeft();
 
@@ -52,7 +53,6 @@
         resize : function( ) {
             $(".static-header-wrapper").each(function(){
                 var bodyTblWidth = $(this).find(".static-header-tbody-wrapper table").width();
-                //$(this).find(".static-header-tbody-wrapper").width(bodyTblWidth);
                 $(this).find(".static-header-thead-wrapper table").width(bodyTblWidth);
                 $(this).find(".static-header-scroll-content").width(bodyTblWidth);
                 $(this).find(".static-header-scroller").width($(this).find(".static-header-tbody-wrapper").width())
@@ -60,8 +60,18 @@
                 var $headTds = $(this).find(".static-header-thead-wrapper td");
                 var $bodyTds = $(this).find(".static-header-tbody-wrapper tr:first td");
 
+                $headTds.width(0);
+                $bodyTds.width(0);
+
                 for(var i=0;i<$headTds.length;i++)
-                    $headTds.eq(i).width($bodyTds.eq(i).width());
+                {
+                    var $headTd = $headTds.eq(i);
+                    var $bodyTd = $bodyTds.eq(i);
+                    var tdHeadWidth = $headTd.width();
+                    var tdBodyWidth = $bodyTd.width();
+
+                    $headTd.width(tdBodyWidth);
+                }
             });
         }
     };
