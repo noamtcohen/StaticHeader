@@ -18,10 +18,13 @@ td:first-child{
     border-left: 1px solid #888;
 }
 
-td:first-child div{
-    width:400px;
+td:first-child{
+    width:250px;
 }
 
 .static-header-wrapper{
     margin-bottom: 50px;
+}
+table{
+    width: 100%;
 }

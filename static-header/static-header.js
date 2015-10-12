@@ -16,11 +16,11 @@
             this.each(function() {
                 if($(this).data("static-header-init"))
                     return;
-
                 $(this).data("static-header-init",{});
 
-                $(this).find("td").each(function(){
-                    $(this).html("<div class='cell-wrapper' style='width:"+$(this).width+"px'>" + $(this).html() + "</div>");
+
+                $(this).find("td").wrapInner(function(){
+                    $(this).html("<div class='cell-wrapper' style='width:"+$(this).width()+"px'>" + $(this).html() + "</div>");
                 });
 
                 $(this).wrap('<div class="static-header-wrapper"></div>');
@@ -52,7 +52,6 @@
 
             methods.resize();
 
-
             return this;
         },
         resize : function( ) {
@@ -61,21 +60,6 @@
                 $(this).find(".static-header-thead-wrapper table").width(bodyTblWidth);
                 $(this).find(".static-header-scroll-content").width(bodyTblWidth);
                 $(this).find(".static-header-scroller").width($(this).find(".static-header-tbody-wrapper").width())
-
-                var $headTds = $(this).find(".static-header-thead-wrapper td .cell-wrapper");
-                var $bodyTds = $(this).find(".static-header-tbody-wrapper tr:first td .cell-wrapper");
-
-                //$headTds.width(0);
-                //$bodyTds.width(0);
-                for(var i=0;i<$headTds.length;i++)
-                {
-                    var $headTd = $headTds.eq(i);
-                    var $bodyTd = $bodyTds.eq(i);
-                    var tdHeadWidth = $headTd.width();
-                    var tdBodyWidth = $bodyTd.width();
-
-                    $headTd.width(tdBodyWidth);
-                }
             });
         }
     };

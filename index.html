@@ -24,29 +24,35 @@
     <div id="container">&nbsp;</div>
 
     <script>
-        //generateDevTable(10,10,{units:'words',count:2},{units:'sentences',count:1});
-        //generateDevTable(10,10,{units:'words',count:1},{units:'words',count:2});
+//        generateDevTable(10,10,{units:'words',count:2},{units:'sentences',count:1});
+//        generateDevTable(10,10,{units:'words',count:1},{units:'words',count:2});
 
-        function loadTestTables() {
+        function loadTestTables(onloaded) {
             function loadTestFile(file, callback) {
                 $.get("test-data/" + $("#test-set").val() + "/" + file, function (data) {
-                    $("#container").append(data);
-                    callback();
+                    //$("#container").append();
+                    callback(data);
                 });
             }
 
-            loadTestFile("file1.html", function () {
-                loadTestFile("file2.html", function () {
-                    $("table").staticHeader();
+            loadTestFile("file1.html", function (data1) {
+                loadTestFile("file2.html", function (data2) {
+                    onloaded(data1 + data2);
                 });
             });
         }
 
-        loadTestTables();
+        function initPlugin(){
+            loadTestTables(function(data){
+                $("#container").empty().append(data);
+                $("table").staticHeader();
+            });
+        }
+
+        initPlugin();
 
         $("#test-set").change(function(){
-            $("#container").empty();
-            loadTestTables();
+            initPlugin();
         })
     </script>
 </body>
