@@ -27,10 +27,10 @@
 //        generateDevTable(10,10,{units:'words',count:2},{units:'sentences',count:1});
 //        generateDevTable(10,10,{units:'words',count:1},{units:'words',count:2});
 
-        function loadTestTables(onloaded) {
+        function loadTestTables(onLoaded) {
             $.get("test-data/test" + $("#test-set").val() + ".html",function (data) {
                 $("#container").empty().append(data);
-                onloaded();
+                onLoaded();
             });
         }
 
@@ -44,7 +44,7 @@
 
         $("#test-set").change(function(){
             initPlugin();
-        })
+        });
     </script>
 </body>
 </html>
