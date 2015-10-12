@@ -28,23 +28,14 @@
 //        generateDevTable(10,10,{units:'words',count:1},{units:'words',count:2});
 
         function loadTestTables(onloaded) {
-            function loadTestFile(file, callback) {
-                $.get("test-data/" + $("#test-set").val() + "/" + file, function (data) {
-                    //$("#container").append();
-                    callback(data);
-                });
-            }
-
-            loadTestFile("file1.html", function (data1) {
-                loadTestFile("file2.html", function (data2) {
-                    onloaded(data1 + data2);
-                });
+            $.get("test-data/test" + $("#test-set").val() + ".html",function (data) {
+                $("#container").empty().append(data);
+                onloaded();
             });
         }
 
         function initPlugin(){
-            loadTestTables(function(data){
-                $("#container").empty().append(data);
+            loadTestTables(function(){
                 $("table").staticHeader();
             });
         }
