@@ -11,6 +11,9 @@
     var methods = {
         init : function(options) {
             var settings = $.extend({
+                bodyCss:{
+                    height:300
+                }
             }, options );
 
             this.each(function() {
@@ -41,6 +44,8 @@
                 $bodyTbl.wrap('<div class="static-header-tbody-wrapper"></div>');
 
                 var $mainWrapper = $(this).parent().parent();
+
+                $mainWrapper.find(".static-header-tbody-wrapper").css(settings.bodyCss);
 
                 $mainWrapper.find(".static-header-scroller").on("scroll",function(){
                     var scrollLeft = $(this).scrollLeft();
