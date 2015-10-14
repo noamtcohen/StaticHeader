@@ -21,7 +21,6 @@
                     return;
                 $(this).data("static-header-init",{});
 
-
                 $(this).find("td").wrapInner(function(){
                     return "<div class='cell-wrapper' style='width:"+$(this).width()+"px'></div>";
                 });
@@ -67,7 +66,7 @@
                 $(this).find(".static-header-scroller").width($(this).find(".static-header-tbody-wrapper").width())
             });
         },
-        distroy:function(){
+        destroy:function(){
             this.each(function() {
                 var $wrapper;
                 if($(this).hasClass("static-header-wrapper"))
