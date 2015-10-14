@@ -23,7 +23,7 @@
 
 
                 $(this).find("td").wrapInner(function(){
-                    return "<div class='cell-wrapper' style='width:"+$(this).width()+"px;padding:inherit;margin:inherit'></div>";
+                    return "<div class='cell-wrapper' style='width:"+$(this).width()+"'></div>";
                 });
 
                 $(this).wrap('<div class="static-header-wrapper"></div>');
