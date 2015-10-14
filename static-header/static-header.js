@@ -23,7 +23,7 @@
 
 
                 $(this).find("td").wrapInner(function(){
-                    return "<div class='cell-wrapper' style='width:"+$(this).width()+"'></div>";
+                    return "<div class='cell-wrapper' style='width:"+$(this).width()+"px'></div>";
                 });
 
                 $(this).wrap('<div class="static-header-wrapper"></div>');
@@ -66,6 +66,26 @@
                 $(this).find(".static-header-scroll-content").width(bodyTblWidth);
                 $(this).find(".static-header-scroller").width($(this).find(".static-header-tbody-wrapper").width())
             });
+        },
+        distroy:function(){
+            this.each(function() {
+                var $wrapper;
+                if($(this).hasClass("static-header-wrapper"))
+                    $wrapper = $(this);
+                else
+                    $wrapper= $(this).parents(".static-header-wrapper:first");
+
+                var $tbl = $wrapper.find(".static-header-thead-wrapper table").detach();
+                var $tbody = $wrapper.find(".static-header-tbody-wrapper table tbody").detach();
+
+                $tbl.append($tbody);
+
+                $tbl.removeData('static-header-init');
+
+                $tbl.find(".cell-wrapper").contents().unwrap();
+                $wrapper.replaceWith($tbl);
+            });
+            return this;
         }
     };
 
