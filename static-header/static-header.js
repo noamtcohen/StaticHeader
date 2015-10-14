@@ -11,9 +11,10 @@
     var methods = {
         init : function(options) {
             var settings = $.extend({
-                bodyCss:{
-                    height:300
-                }
+                overflow:{
+                    maxHeight: 300
+                },
+                tableWidth:"100%"
             }, options );
 
             this.each(function() {
@@ -21,11 +22,14 @@
                     return;
                 $(this).data("static-header-init",{});
 
+                $(this).width(0);
                 $(this).find("td").wrapInner(function(){
                     return "<div class='cell-wrapper' style='width:"+$(this).width()+"px'></div>";
                 });
-
+                
                 $(this).wrap('<div class="static-header-wrapper"></div>');
+
+                $(this).width(settings.tableWidth);
 
                 var $thead = $(this).find("thead").detach();
                 var $tbody = $(this).find("tbody").detach();
@@ -44,7 +48,7 @@
 
                 var $mainWrapper = $(this).parent().parent();
 
-                $mainWrapper.find(".static-header-tbody-wrapper").css(settings.bodyCss);
+                $mainWrapper.find(".static-header-tbody-wrapper").css(settings.overflow);
 
                 $mainWrapper.find(".static-header-scroller").on("scroll",function(){
                     var scrollLeft = $(this).scrollLeft();
