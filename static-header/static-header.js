@@ -118,10 +118,6 @@
         return false;
     }
 
-    function setInitFlag(){
-        $(this).data("static-header-init",{});
-    }
-
     function wrapTmp(arg){
         if(arg && arg.unwrap)
             $(this).parents('.static-header-tmp-wrapper:first').contents().unwrap();
