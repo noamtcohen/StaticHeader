@@ -7,7 +7,7 @@
     $(window).resize(function(){
         $(".static-header-wrapper").each(function(){
             resize.apply(this);
-        })
+        });
     });
 
     $.fn[PLUGIN_NAME] = function(methodOrOptions) {
