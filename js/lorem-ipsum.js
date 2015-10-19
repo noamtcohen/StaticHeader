@@ -1,7 +1,7 @@
 /*
 
  https://github.com/knicklabs/lorem-ipsum.js
- 
+
  */
 
 var dictionary = {
