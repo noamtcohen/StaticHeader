@@ -1,5 +1,7 @@
-/**
- * Created by noamc on 10/8/15.
+/*
+
+ https://github.com/knicklabs/lorem-ipsum.js
+ 
  */
 
 var dictionary = {
