@@ -1,1 +1,1 @@
-Static Header Plugin for HTML tables
+<img src="stam/ScreenShot.png">
